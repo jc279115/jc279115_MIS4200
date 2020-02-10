@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace jc279115_MIS4200.Models
 {
     public class Users
     {
+        [Key]
         public int userID { get; set; }
         public string fullName { get; set; }
         public string userName { get; set; }

@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace jc279115_MIS4200.Models
 {
     public class Review
     {
+        [Key]
         public int reviewID { get; set; }
         public string comments { get; set; }
         public DateTime submittedOn { get; set; }
