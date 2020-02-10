@@ -18,7 +18,7 @@ namespace jc279115_MIS4200.Controllers
         // GET: Reviews
         public ActionResult Index()
         {
-            var reviews = db.Reviews.Include(r => r.Users);
+            var reviews = db.Reviews.Include(r => r.Places).Include(r => r.Users);
             return View(reviews.ToList());
         }
 
@@ -40,6 +40,7 @@ namespace jc279115_MIS4200.Controllers
         // GET: Reviews/Create
         public ActionResult Create()
         {
+            ViewBag.placesID = new SelectList(db.Places, "placesID", "fullName");
             ViewBag.userID = new SelectList(db.Users, "userID", "fullName");
             return View();
         }
@@ -49,7 +50,7 @@ namespace jc279115_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "reviewID,comments,submittedOn,userID,placeID")] Review review)
+        public ActionResult Create([Bind(Include = "reviewID,comments,submittedOn,userID,placesID")] Review review)
         {
             if (ModelState.IsValid)
             {
@@ -58,6 +59,7 @@ namespace jc279115_MIS4200.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.placesID = new SelectList(db.Places, "placesID", "fullName", review.placesID);
             ViewBag.userID = new SelectList(db.Users, "userID", "fullName", review.userID);
             return View(review);
         }
@@ -74,6 +76,7 @@ namespace jc279115_MIS4200.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.placesID = new SelectList(db.Places, "placesID", "fullName", review.placesID);
             ViewBag.userID = new SelectList(db.Users, "userID", "fullName", review.userID);
             return View(review);
         }
@@ -83,7 +86,7 @@ namespace jc279115_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "reviewID,comments,submittedOn,userID,placeID")] Review review)
+        public ActionResult Edit([Bind(Include = "reviewID,comments,submittedOn,userID,placesID")] Review review)
         {
             if (ModelState.IsValid)
             {
@@ -91,6 +94,7 @@ namespace jc279115_MIS4200.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.placesID = new SelectList(db.Places, "placesID", "fullName", review.placesID);
             ViewBag.userID = new SelectList(db.Users, "userID", "fullName", review.userID);
             return View(review);
         }

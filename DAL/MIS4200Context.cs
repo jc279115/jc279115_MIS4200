@@ -11,11 +11,20 @@ namespace jc279115_MIS4200.DAL
     {
         public MIS4200Context() : base("name=DefaultConnection")
         {
-
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MIS4200Context,
+            jc279115_MIS4200.Migrations.MISContext.Configuration>("DefaultConnection"));
         }
         public DbSet<Users> Users { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Places> Places { get; set; }
+
     }
+    /*protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+    }*/
+
+
+
 
 }

@@ -14,7 +14,7 @@ namespace jc279115_MIS4200.Models
         public DateTime submittedOn { get; set; }
         public int userID { get; set; }
         public virtual Users Users { get; set; }
-        public int placeID { get; set; }
+        public int placesID { get; set; }
         public virtual Places Places { get; set; }
 
     }

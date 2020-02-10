@@ -11,6 +11,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Places.fullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Places.fullName)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Users.fullName)
         </dt>
 
@@ -32,14 +40,6 @@
 
         <dd>
             @Html.DisplayFor(model => model.submittedOn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.placeID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.placeID)
         </dd>
 
     </dl>
