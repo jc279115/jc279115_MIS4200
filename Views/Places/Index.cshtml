@@ -1,4 +1,4 @@
-﻿@model IEnumerable<jc279115_MIS4200.Models.Places>
+﻿@model IEnumerable<jc279115_MIS4200.Models.Place>
 
 @{
     ViewBag.Title = "Index";
@@ -12,13 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.fullName)
+            @Html.DisplayNameFor(model => model.restName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.address)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.phoneNumber)
+            @Html.DisplayNameFor(model => model.phoneNUmber)
         </th>
         <th></th>
     </tr>
@@ -26,18 +26,18 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.fullName)
+            @Html.DisplayFor(modelItem => item.restName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.address)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.phoneNumber)
+            @Html.DisplayFor(modelItem => item.phoneNUmber)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.placesID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.placesID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.placesID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.placeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.placeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.placeID })
         </td>
     </tr>
 }

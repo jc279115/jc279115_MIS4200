@@ -28,12 +28,12 @@ namespace jc279115_MIS4200.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users users = db.Users.Find(id);
-            if (users == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(user);
         }
 
         // GET: Users/Create
@@ -47,16 +47,16 @@ namespace jc279115_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "userID,fullName,userName,password,email,phoneNumber,userSince")] Users users)
+        public ActionResult Create([Bind(Include = "userID,fullName,userName,passWord,email,phoneNumber,publishDate")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Users.Add(users);
+                db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(users);
+            return View(user);
         }
 
         // GET: Users/Edit/5
@@ -66,12 +66,12 @@ namespace jc279115_MIS4200.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users users = db.Users.Find(id);
-            if (users == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(user);
         }
 
         // POST: Users/Edit/5
@@ -79,15 +79,15 @@ namespace jc279115_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "userID,fullName,userName,password,email,phoneNumber,userSince")] Users users)
+        public ActionResult Edit([Bind(Include = "userID,fullName,userName,passWord,email,phoneNumber,publishDate")] User user)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(users).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(users);
+            return View(user);
         }
 
         // GET: Users/Delete/5
@@ -97,12 +97,12 @@ namespace jc279115_MIS4200.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Users users = db.Users.Find(id);
-            if (users == null)
+            User user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(users);
+            return View(user);
         }
 
         // POST: Users/Delete/5
@@ -110,8 +110,8 @@ namespace jc279115_MIS4200.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Users users = db.Users.Find(id);
-            db.Users.Remove(users);
+            User user = db.Users.Find(id);
+            db.Users.Remove(user);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

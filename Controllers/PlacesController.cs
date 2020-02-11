@@ -28,12 +28,12 @@ namespace jc279115_MIS4200.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Places places = db.Places.Find(id);
-            if (places == null)
+            Place place = db.Places.Find(id);
+            if (place == null)
             {
                 return HttpNotFound();
             }
-            return View(places);
+            return View(place);
         }
 
         // GET: Places/Create
@@ -47,16 +47,16 @@ namespace jc279115_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "placesID,fullName,address,phoneNumber")] Places places)
+        public ActionResult Create([Bind(Include = "placeID,restName,address,phoneNUmber")] Place place)
         {
             if (ModelState.IsValid)
             {
-                db.Places.Add(places);
+                db.Places.Add(place);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(places);
+            return View(place);
         }
 
         // GET: Places/Edit/5
@@ -66,12 +66,12 @@ namespace jc279115_MIS4200.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Places places = db.Places.Find(id);
-            if (places == null)
+            Place place = db.Places.Find(id);
+            if (place == null)
             {
                 return HttpNotFound();
             }
-            return View(places);
+            return View(place);
         }
 
         // POST: Places/Edit/5
@@ -79,15 +79,15 @@ namespace jc279115_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "placesID,fullName,address,phoneNumber")] Places places)
+        public ActionResult Edit([Bind(Include = "placeID,restName,address,phoneNUmber")] Place place)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(places).State = EntityState.Modified;
+                db.Entry(place).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(places);
+            return View(place);
         }
 
         // GET: Places/Delete/5
@@ -97,12 +97,12 @@ namespace jc279115_MIS4200.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Places places = db.Places.Find(id);
-            if (places == null)
+            Place place = db.Places.Find(id);
+            if (place == null)
             {
                 return HttpNotFound();
             }
-            return View(places);
+            return View(place);
         }
 
         // POST: Places/Delete/5
@@ -110,8 +110,8 @@ namespace jc279115_MIS4200.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Places places = db.Places.Find(id);
-            db.Places.Remove(places);
+            Place place = db.Places.Find(id);
+            db.Places.Remove(place);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

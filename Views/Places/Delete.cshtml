@@ -1,4 +1,4 @@
-﻿@model jc279115_MIS4200.Models.Places
+﻿@model jc279115_MIS4200.Models.Place
 
 @{
     ViewBag.Title = "Delete";
@@ -8,15 +8,15 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Places</h4>
+    <h4>Place</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.fullName)
+            @Html.DisplayNameFor(model => model.restName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.fullName)
+            @Html.DisplayFor(model => model.restName)
         </dd>
 
         <dt>
@@ -28,11 +28,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.phoneNumber)
+            @Html.DisplayNameFor(model => model.phoneNUmber)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.phoneNumber)
+            @Html.DisplayFor(model => model.phoneNUmber)
         </dd>
 
     </dl>

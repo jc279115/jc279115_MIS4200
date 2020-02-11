@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Places.fullName)
+            @Html.DisplayNameFor(model => model.Place.restName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Users.fullName)
+            @Html.DisplayNameFor(model => model.User.fullName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.comments)
+            @Html.DisplayNameFor(model => model.userComment)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.submittedOn)
+            @Html.DisplayNameFor(model => model.visitDate)
         </th>
         <th></th>
     </tr>
@@ -29,16 +29,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Places.fullName)
+            @Html.DisplayFor(modelItem => item.Place.restName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Users.fullName)
+            @Html.DisplayFor(modelItem => item.User.fullName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.comments)
+            @Html.DisplayFor(modelItem => item.userComment)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.submittedOn)
+            @Html.DisplayFor(modelItem => item.visitDate)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.reviewID }) |

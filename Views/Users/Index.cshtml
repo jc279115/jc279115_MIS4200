@@ -1,4 +1,4 @@
-﻿@model IEnumerable<jc279115_MIS4200.Models.Users>
+﻿@model IEnumerable<jc279115_MIS4200.Models.User>
 
 @{
     ViewBag.Title = "Index";
@@ -18,7 +18,7 @@
             @Html.DisplayNameFor(model => model.userName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.password)
+            @Html.DisplayNameFor(model => model.passWord)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.email)
@@ -27,7 +27,7 @@
             @Html.DisplayNameFor(model => model.phoneNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.userSince)
+            @Html.DisplayNameFor(model => model.publishDate)
         </th>
         <th></th>
     </tr>
@@ -41,7 +41,7 @@
             @Html.DisplayFor(modelItem => item.userName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.password)
+            @Html.DisplayFor(modelItem => item.passWord)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.email)
@@ -50,7 +50,7 @@
             @Html.DisplayFor(modelItem => item.phoneNumber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.userSince)
+            @Html.DisplayFor(modelItem => item.publishDate)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.userID }) |

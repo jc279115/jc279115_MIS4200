@@ -8,14 +8,14 @@ namespace jc279115_MIS4200.Models
 {
     public class Review
     {
-        [Key]
         public int reviewID { get; set; }
-        public string comments { get; set; }
-        public DateTime submittedOn { get; set; }
+        public int userComment { get; set; }
+        public DateTime visitDate { get; set; }
+        
         public int userID { get; set; }
-        public virtual Users Users { get; set; }
-        public int placesID { get; set; }
-        public virtual Places Places { get; set; }
-
+        public virtual User User { get; set; }
+        
+        public int placeID { get; set; }
+        public virtual Place Place { get; set; }
     }
 }
