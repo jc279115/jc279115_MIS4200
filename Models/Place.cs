@@ -10,7 +10,9 @@ namespace jc279115_MIS4200.Models
     {
         public int placeID { get; set; }
         public string restName { get; set; }
-        public string address { get; set; }
+        public string streetAddress { get; set; }
+        public int zipCode { get; set; }
+        public string state { get; set; }
         public string phoneNUmber { get; set; }
         public ICollection<Review> Review { get; set; }
     }

@@ -9,7 +9,7 @@ namespace jc279115_MIS4200.Models
     public class Review
     {
         public int reviewID { get; set; }
-        public int userComment { get; set; }
+        public string userComment { get; set; }
         public DateTime visitDate { get; set; }
         
         public int userID { get; set; }

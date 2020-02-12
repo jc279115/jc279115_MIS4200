@@ -47,7 +47,7 @@ namespace jc279115_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "placeID,restName,address,phoneNUmber")] Place place)
+        public ActionResult Create([Bind(Include = "placeID,restName,streetAddress,zipCode,state,phoneNUmber")] Place place)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace jc279115_MIS4200.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "placeID,restName,address,phoneNUmber")] Place place)
+        public ActionResult Edit([Bind(Include = "placeID,restName,streetAddress,zipCode,state,phoneNUmber")] Place place)
         {
             if (ModelState.IsValid)
             {

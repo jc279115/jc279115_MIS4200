@@ -14,7 +14,6 @@ namespace jc279115_MIS4200.Models
         public string passWord { get; set; }
         public string email { get; set; }
         public string phoneNumber { get; set; }
-        public DateTime publishDate { get; set; }
         public ICollection<Review> Review { get; set; }
         
     }
