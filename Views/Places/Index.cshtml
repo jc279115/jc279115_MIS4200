@@ -4,12 +4,12 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+    <h2>List of Restaurant</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.restName)
@@ -29,29 +29,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.restName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.streetAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.zipCode)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.state)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phoneNUmber)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.placeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.placeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.placeID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.restName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.streetAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.zipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.state)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phoneNUmber)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.placeID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.placeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.placeID })
+            </td>
+        </tr>
+    }
 
 </table>
